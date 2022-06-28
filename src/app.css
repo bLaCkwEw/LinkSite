@@ -1,0 +1,26 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply h-screen w-screen;
+}
+
+.item {
+  @apply flex justify-center items-center;
+  @apply bg-primary text-primary-content shadow-sm shadow-zinc-900;
+  @apply hover:-translate-y-px transition-transform;
+  @apply h-20 w-full p-4;
+}
+
+.u-container {
+  @apply flex flex-col min-h-screen;
+}
+
+.container-links {
+  @apply flex flex-col items-center gap-2 grow;
+  @apply max-w-2xl w-full;
+  @apply my-8 mx-auto px-4;
+}
