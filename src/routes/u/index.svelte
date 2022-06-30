@@ -47,8 +47,8 @@
 	<div class="container-links">
 		<!-- Display if there are no params -->
 		{#if items[0] === undefined}
-			<p>This URL has no parameters.</p>
-			<p>
+			<p class="text-center">This URL has no parameters.</p>
+			<p class="text-center">
 				Perhaps you would like to try our <a class="link" href="./generator"
 					>generator</a
 				>.
