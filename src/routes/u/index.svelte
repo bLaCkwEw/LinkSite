@@ -36,7 +36,7 @@
 </script>
 
 <div class="u-container">
-	<h1 class="text-2xl text-center pt-8">
+	<h1 class="top-text">
 		{#if page_title}
 			{page_title}
 		{:else}

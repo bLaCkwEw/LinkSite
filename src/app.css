@@ -17,10 +17,15 @@ body {
 
 .u-container {
 	@apply flex flex-col min-h-screen;
+	@apply bg-primary-content;
 }
 
 .container-links {
 	@apply flex flex-col items-center gap-2 grow;
 	@apply max-w-2xl w-full;
 	@apply my-8 mx-auto px-4;
+}
+
+.top-text {
+	@apply text-2xl text-center pt-8;
 }
