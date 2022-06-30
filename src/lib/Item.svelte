@@ -1,13 +1,13 @@
 <script>
-  export let link;
-  export let label;
+	export let link;
+	export let label;
 </script>
 
 <a
-  class="item"
-  href={`https://${link}`}
-  rel="noopener noreferrer"
-  target="_blank"
+	class="item"
+	href={`https://${link}`}
+	rel="noopener noreferrer"
+	target="_blank"
 >
-  {label}
+	{label}
 </a>
