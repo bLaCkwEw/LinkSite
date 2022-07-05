@@ -1,10 +1,15 @@
 <script>
-	export let link = "Link";
-	export let label = "Label";
+	import { createEventDispatcher } from "svelte";
+
+	export let link;
+	export let label;
+
+	const dispatch = createEventDispatcher();
+	export const removeEvent = () => dispatch("removeFunction");
 </script>
 
 <div class="flex items-center gap-2 mt-2 max-w-sm overflow-x-scroll">
-	<button class="btn btn-square btn-error">
+	<button class="btn btn-square btn-error" on:click={removeEvent}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-6 w-6"
@@ -20,7 +25,9 @@
 		>
 	</button>
 
-	<div>{link}</div>
-	<div>|</div>
-	<div>{label}</div>
+	{#if !label}
+		<div>[{link}]({link})</div>
+	{:else}
+		<div>[{label}]({link})</div>
+	{/if}
 </div>

@@ -3,11 +3,6 @@
 	export let label;
 </script>
 
-<a
-	class="item"
-	href={`https://${link}`}
-	rel="noopener noreferrer"
-	target="_blank"
->
+<a class="item" href={`${link}`} rel="noopener noreferrer" target="_blank">
 	{label}
 </a>
