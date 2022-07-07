@@ -4,8 +4,8 @@
   * 
  -->
 <script>
-	import Item from "../../lib/Item.svelte";
 	import { page } from "$app/stores";
+	import Item from "../../lib/Item.svelte";
 	import Footer from "../../lib/Footer.svelte";
 
 	const params = $page.url.searchParams;
@@ -14,25 +14,14 @@
 	const page_title = params.get("title");
 
 	let items = [];
-	console.log(items[0]);
 	for (let i = 0; i < links.length; i++) {
-		// If label use label
 		if (labels[i]) {
 			items.push({
 				link: links[i],
 				label: labels[i],
 			});
 		}
-
-		// If no label use link as label
-		if (labels[i] === undefined) {
-			items.push({
-				link: links[i],
-				label: links[i],
-			});
-		}
 	}
-	// Gaseste un mod prin care sa faci sa functioneze #each block-ul
 </script>
 
 <div class="u-container">

@@ -3,6 +3,15 @@
 	export let label;
 </script>
 
-<a class="item" href={`${link}`} rel="noopener noreferrer" target="_blank">
-	{label}
+<a
+	class="item"
+	href={`https://${link}`}
+	rel="noopener noreferrer"
+	target="_blank"
+>
+	{#if label === "undefined" || label === undefined}
+		{link}
+	{:else}
+		{label}
+	{/if}
 </a>
