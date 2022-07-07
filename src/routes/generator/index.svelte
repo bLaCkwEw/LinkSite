@@ -2,7 +2,7 @@
 	import Footer from "../../lib/Footer.svelte";
 	import GeneratorItem from "../../lib/GeneratorItem.svelte";
 
-	const site_URL = "localhost:3000/u?";
+	const site_URL = `${window.location.hostname}/u?`;
 	let site_link = undefined;
 	let site_label = undefined;
 
