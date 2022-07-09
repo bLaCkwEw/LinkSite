@@ -5,6 +5,7 @@
  -->
 <script>
 	import { page } from "$app/stores";
+	import { onMount } from "svelte";
 	import Item from "../../lib/Item.svelte";
 	import Footer from "../../lib/Footer.svelte";
 
@@ -12,6 +13,7 @@
 	const links = params.getAll("link");
 	const labels = params.getAll("label");
 	const page_title = params.get("title");
+	const theme = params.get("theme");
 
 	let items = [];
 	for (let i = 0; i < links.length; i++) {
@@ -21,7 +23,20 @@
 				label: labels[i],
 			});
 		}
+
+		if (!labels[i]) {
+			items.push({
+				link: links[i],
+				label: links[i],
+			});
+		}
 	}
+
+	onMount(() => {
+		if (theme) {
+			document.documentElement.setAttribute("data-theme", theme);
+		}
+	});
 </script>
 
 <div class="u-container">

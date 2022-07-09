@@ -10,14 +10,15 @@ body {
 
 .item {
 	@apply flex justify-center items-center;
-	@apply bg-primary text-primary-content shadow-sm shadow-zinc-900;
+	@apply bg-primary text-primary-content shadow-sm shadow-neutral;
+	@apply hover:bg-primary-focus;
 	@apply hover:-translate-y-px transition-transform;
 	@apply h-20 w-full p-4;
 }
 
 .u-container {
 	@apply flex flex-col min-h-screen;
-	@apply bg-primary-content;
+	@apply bg-base-100;
 }
 
 .container-links {
@@ -27,5 +28,6 @@ body {
 }
 
 .top-text {
-	@apply text-2xl text-center pt-8;
+	@apply text-2xl text-center pt-8 w-max mx-auto;
+	@apply text-base-content;
 }
