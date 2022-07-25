@@ -9,7 +9,7 @@
 	rel="noopener noreferrer"
 	target="_blank"
 >
-	{#if label === "undefined" || label === undefined}
+	{#if label === "undefined" || label == undefined}
 		{link}
 	{:else}
 		{label}
