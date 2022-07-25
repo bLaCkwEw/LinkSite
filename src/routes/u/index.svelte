@@ -9,27 +9,30 @@
 	import Item from "../../lib/Item.svelte";
 	import Footer from "../../lib/Footer.svelte";
 
-	const params = $page.url.searchParams;
-	const links = params.getAll("link");
-	const labels = params.getAll("label");
-	const page_title = params.get("title");
-	const theme = params.get("theme");
+	function getParams(param_name) {
+		return $page.url.searchParams.getAll(param_name);
+	}
 
-	let items = [];
-	for (let i = 0; i < links.length; i++) {
-		if (labels[i]) {
-			items.push({
-				link: links[i],
-				label: labels[i],
-			});
-		}
+	function getParam(param_name) {
+		return $page.url.searchParams.get(param_name);
+	}
 
-		if (!labels[i]) {
-			items.push({
-				link: links[i],
-				label: links[i],
+	const page_title = getParam("title");
+	const theme = getParam("theme");
+
+	function generateLinkData() {
+		const links = getParams("link");
+		const labels = getParams("label");
+
+		const result = links.map((link, linkIndex) => {
+			const label = labels.find((e, labelIndex) => {
+				return labelIndex === linkIndex;
 			});
-		}
+
+			return [link, label];
+		});
+
+		return result;
 	}
 
 	onMount(() => {
@@ -50,7 +53,7 @@
 
 	<div class="container-links">
 		<!-- Display if there are no params -->
-		{#if items[0] === undefined}
+		{#if generateLinkData()[0] == undefined}
 			<p class="text-center">This URL has no parameters.</p>
 			<p class="text-center">
 				Perhaps you would like to try our <a class="link" href="./generator"
@@ -59,8 +62,8 @@
 			</p>
 		{/if}
 
-		{#each items as item}
-			<Item link={item.link} label={item.label} />
+		{#each generateLinkData() as data}
+			<Item link={data[0]} label={data[1]} />
 		{/each}
 	</div>
 
